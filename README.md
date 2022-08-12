@@ -15,12 +15,10 @@
 
 ## Using Git
 
-> TODO: Create a table of contents here.  Each line should be a clickable link to each part of this document or another file containing the questions and answers. One item per line.
-
 [Basics](#basics)    
 [Adding and Changing Things](#adding-and-changing-things)    
-[Next Section (todo: Fix This)](#next-section)    
-[Next Section (todo: Fix This)](#next-next-section)    
+[Undo Changes and Recover Files](#undo-changes-and-recover-files)    
+[Viewing Commits](#viewing-commits)    
 [Commands for Remotes](remote-commands.md)   
 [Favorites](#favorites)     
 [Resources](#resources)
@@ -33,25 +31,52 @@ In this file, directory paths are written with a forward slash as on MacOS, Linu
 ## Basics
 
 1. When using Git locally, what are these?  Define each one in a sentence
-   * Staging area -
-   * Working copy -
-   * master -
-   * HEAD -
+   * Staging area - A part of the Git work lifecycle where files with changes are enqeued by user before making a snapshot (commit). 
+   * Working copy - A Git repository that is on a local computer which can contain changes to the repository but is not yet pushed to a remote repository.
+   * master - The default/common name for a branch in a Git repository; most of the repositories will have an initial branch with this name.
+   * HEAD - A reference to a commit object, which usually points to the tip of the current active branch.
 
 2. When you install git on a new machine (or in a new user account) you should perform these 2 git commands to tell git your name and email.  These values are used in commits that you make:
+   
    ```
    # Git configuration commands for a new account
-
-
+   git config --global user.name Name
+   git config --global user.email name@example.com
    ```
 
 3. There are 2 ways to create a local Git repository.  What are they?
-   - todo: briefly describe first way
-   - todo: briefly describe second way
+   * **Create a new repository from scratch:**
+   
+     Use a **terminal** to navigate to an empty folder or any folder you wanted to make a Git repository. (usually `cd`)
+     
+     Then use the following command inside the terminal,
+     
+     ```
+     git init
+     ```
+     
+     You will get a new Git repository and a working copy as that directory you've executed the command inside. The repository will have no remotes to push changes to yet.
+   
+   * **Clone a repository from a Git-supported repository hosting services:**
+   
+     Use a terminal to navigate to a destination folder you wanted to clone the repository to.
+     
+     Then use the following command inside the terminal,
+     
+     ```
+     git clone <repository-url> [directory-name]
+     ```
+     You will have a working copy as a new directory in the destination folder with the same name as the repository unless you set the `directory-name` option. The repository will already have remote to the repository online.
 
 4. When you create a git repository by entering `git init`, Git will create a "hidden" directory for the local repository.  Where is the directory for this local repository (relative to the directory where you typed "git init")?
 
-
+   The hidden directory `.git` is in the location where `git init` is executed. For example,
+   
+   ```sh
+   ~ > cd my-repo
+   my-repo > ls -a
+   my-repo > .git
+   ```
 
 ## Adding and Changing Things
 
