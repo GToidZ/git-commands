@@ -75,7 +75,7 @@ In this file, directory paths are written with a forward slash as on MacOS, Linu
    ```sh
    ~ > cd my-repo
    my-repo > ls -a
-   my-repo > .git
+   .git
    ```
 
 ## Adding and Changing Things
