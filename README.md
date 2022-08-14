@@ -1,18 +1,3 @@
-> **Instructions**
-> 
-> 1. Read Chapters 2 & 3 of [Pro Git][ProGit]. The chapters are short.
-> 2. Answer these questions using [Markdown format][markdown-cheatsheet] (also [Github Markdown][github-markdown]). 
-> 3. Place your answers between lines beginning with 3 backquotes, which tells Markdown it should be unformatted text, and write only the commands you would type (**no** shell prompt).
->    Indent the 3 backquotes so they line up with the question text (3 leading spaces) so Markdown formats you answer as part of the numbered item.
->    Example:
->    ```
->    git init
->    ```  
-> 4. **Test that your answers are correct!** There is **no excuse** for incorrect answers since you can test your answers by experimentation.      
-> 5. **Delete these instructions and all "TODO" lines.** Points deducted for each "TODO" in submitted work.   
-> 6. Verify that your Markdown formatting is correct -- points deducted for bad formatting. VS Code and IntelliJ have markdown previewers. You should also preview it on Github, since Github Markdown is a bit non-standard.
->   *Excellent VS Code Markdown Previewer*: the [Markdown Preview Enhanced][vscode-markdown-preview-enhanced] extension.
-
 ## Using Git
 
 [Basics](#basics)    
@@ -27,11 +12,10 @@
 
 In this file, directory paths are written with a forward slash as on MacOS, Linux, and the Windows-Bash shell: `/dir1/dir2/somefile`.    
 
-
 ## Basics
 
 1. When using Git locally, what are these?  Define each one in a sentence
-   * Staging area - A part of the Git work lifecycle where files with changes are enqeued by user before making a snapshot (commit). 
+   * Staging area - A part of the Git work lifecycle where files with changes are enqeued by user before making a snapshot (commit).
    * Working copy - A Git repository that is on a local computer which can contain changes to the repository but is not yet committed to the repository.
    * master - The default/common name for a branch in a Git repository; most of the repositories will have an initial branch with this name.
    * HEAD - A reference to a commit object, which usually points to the tip of the current active branch.
@@ -66,6 +50,7 @@ In this file, directory paths are written with a forward slash as on MacOS, Linu
      ```
      git clone <repository-url> [directory-name]
      ```
+     
      You will have a working copy as a new directory in the destination folder with the same name as the repository unless you set the `directory-name` option. The repository will already have remote to the repository online.
 
 4. When you create a git repository by entering `git init`, Git will create a "hidden" directory for the local repository.  Where is the directory for this local repository (relative to the directory where you typed "git init")?
@@ -218,45 +203,54 @@ test/
    test/test_b.py
    ```
 
-
 ## Branch and Merge
 
-> TODO write the commands to do each of these
 1. Create a new branch named `dev-foo`:
+   ```
+   git branch dev-foo
+   ```
  
 2. Display the name of your current branch:
+   ```
+   git branch
+   ```
 
 3. List the names of **all** branches, including remote branches:
+   ```
+   git branch --all
+   ```
 
 4. Switch your working copy to the branch named `dev-foo`:
+   ```
+   git checkout dev-foo
+   ```
 
 5. **Merge:** To merge the work from `dev-foo` into the master branch, perform these steps:
-   > TODO: write a description of the steps and the git command(s) for each step
-   1. step one
+   1. Checkout at the `master` branch.
       ```
-      git do something
+      git checkout master
       ```
-   2. step two
+   2. Merge the `dev-foo` branch with `master` branch.
       ```
-      git do something else
+      git merge dev-foo
       ```
-
 
 6. Describe under what conditions a merge may fail.
-
-
-
-
+   
+   Merging can fail whenever the two or more branches have modified the same part (lines) of a file. In Git, it is considered a conflict and must be resolved using `mergetool`.
+   
 ## Favorites
 
-> TODO: Add *at least* 1 git task that (a) that you'd like to remember, or (b) you think is really useful, and the git command(s) to do it.
-
-
+**Rollback a commit**: I often had nightmares about committing wrongly and pushing them into the remote repository, so I wrote something explicit but works personally,
+```sh
+# Restting to HEAD^ means commit down in the working tree by 1.
+# Using --soft means you'd not lose changes to local files.
+# Second command will unstage the files.
+git reset --soft HEAD^ && git reset HEAD .
+```
 
 ---
 ## Resources
-
-> TODO: Add your favorite Git resources (at least 1)
 
 [Pro Git Online Book][ProGit] Chapters 2 & 3 contain the essentials. Downloadable PDF is also available.     
 [Visual Git Reference](https://marklodato.github.io/visual-git-guide) one page with illustrations of git commands.
@@ -264,7 +258,10 @@ test/
 Try Git:
 
 [Learn Git Interactive Tutorial][LearnGitInteractive] excellent visual tutorial.   
-[Git Visualizer][VisualizeGit] execute Git commands in a web browser and see the results as a graph.    
+[Git Visualizer][VisualizeGit] execute Git commands in a web browser and see the results as a graph.
+
+[Video Playlist][Git for Poets] by [The Coding Train][TheCodingTrain], has short episodes and suitable for those who are new to GitHub concepts.
+
 
 [ProGit]: https://www.git-scm.com/book/en/v2 "Pro Git online book on Git-scm.com"
 [ProGitPdf]: https://progit2.s3.amazonaws.com/en/2016-03-22-f3531/progit-en.1084.pdf "Pro Git v.2 PDF on AWS. Longer, book format."
@@ -273,3 +270,5 @@ Try Git:
 [markdown-cheatsheet]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 [github-markdown]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 [vscode-markdown-preview-enhanced]: https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced
+[TheCodingTrain]: https://www.youtube.com/c/TheCodingTrain
+[Git for Poets]: https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV
