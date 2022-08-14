@@ -105,7 +105,7 @@ test/
 
 3. List the files in the staging area.
    ```
-   git ls-files
+   git status
    ```
 
 4. Remove `README.md` from the staging area. (Useful if you accidentally add something you don't want to commit.)
@@ -200,11 +200,13 @@ test/
    Some versions of git have an *alias* "log1" for this (`git log1`).
 
 2. Show the history (as above) including *all* branches in the repository and include a graph connecting the commits:
-
+   ```
+   git log --all --graph
+   ```
 
 3. List all the files in the current branch of the repository:
    ```
-   todo your answer
+   git ls-files
    ```
    example output:
    ```
