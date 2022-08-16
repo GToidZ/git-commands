@@ -134,12 +134,12 @@ test/
 
 1. Display the differences between your *working copy* of `a.py` and the `a.py` in the *local repository* (HEAD revision):
    ```
-   git diff a.py
+   git diff HEAD a.py
    ```
 
 2. Display the differences between your *working copy* of `a.py` and the version in the *staging area*. (But, if a.py is not in the staging area this will compare working copy to HEAD revision):
    ```
-   git diff --cached a.py
+   git diff a.py
    ```
 
 3. **View changes to be committed:** Display the differences between files in the staging area and the versions in the repository. (You can also specify a file name to compare just one file.)
