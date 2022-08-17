@@ -1,3 +1,7 @@
+# The Ultimate Guide to Using Git
+
+**For the Impatient**
+
 ## Using Git
 
 [Basics](#basics)    
