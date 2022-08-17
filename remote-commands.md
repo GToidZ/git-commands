@@ -79,8 +79,7 @@
 
 8. To create a *second* remote repository for your local repo, the command to add a remote named "bitbucket" with the URL "https://bitbucket.org/your-username/git-commands" is:
    ```sh
-   # TODO: Make BitBucket git-commands repo
-   git remote add bitbucket https://bitbucket.org/your-username/git-commands
+   git remote add bitbucket https://GToidZ@bitbucket.org/gtoidz/git-commands.git
    ```
    - Note: you must **create** an empty repo on Bitbucket. This command just adds it as a remote, it won't create the remote repo.
 
