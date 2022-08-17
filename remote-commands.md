@@ -28,9 +28,21 @@
 
 5. (Create a local tracking branch for a remote branch) The remote repository (`origin`) has a branch named `e2e-test` that you don't have in your local repository.   
    The command to create a new local branch as a copy of the remote `e2e-test` branch that **tracks** the remote branch is:
-   ```
-   TODO There are many commands that will do this.
-   You may write one or more than one.
+   ```sh
+   # 1. Pull and apply (Fetch & Merge)
+   git pull
+   # or 'git pull origin e2e-test' to pull specific branch
+   git checkout e2e-test
+
+   # 2. Fetch-only, no merging (Still retrieves all branches anyways)
+   git fetch origin
+   git checkout e2e-test
+
+   # 3. Fetch only that branch (Using FETCH_HEAD)
+   # Seemed like a way to minimize trackers, ref: https://git-scm.com/docs/git-pull/#_examples
+   git fetch origin e2e-test
+   git branch e2e-test FETCH_HEAD
+   git checkout e2e-test
    ```
 
 6. Consider this situation:
@@ -41,12 +53,23 @@
    
    What happens when you `push` your changes?    
    Explain why and how to fix it.
-
-
+   > **The push will fail.** Git will output an error message, stating that changes are not up-to-date with the remote.
+   
+   > ***Why?*** When you try to push local changes to remote repository in this matter, the push has a parent commit of commit before you edited the file on GitHub.
+   >
+   > This is the first reason why it will fail.
+   >
+   > To fix the issue, use `git fetch` to update the index of local repo to be equivalent to remote repo.
+   >
+   > Then, use `git merge --no-commit` to try automatic merge first, if you didn't an error, skip the next step.
+   >
+   > To fix another issue that automatic merge cannot be made, you will need to modify the conflicting files yourself until all the conflicts are resolved.
+   >
+   > Don't forget to `git add` any resolved files, commit and push them again.
 
 7. The command to change the URL of the remote "origin" to a new URL, such as `https://hostname/newuser/new-repo-name`, is:
    ```
-   TODO your answer
+   git remote set-url origin https://hostname/newuser/new-repo-name
    ```
    This situation occurs when:
    - you change the name of a repo on Github
@@ -54,14 +77,15 @@
    - you move from Github to another hosting site, like Bitbucket
    - you want to switch from the https to the ssh protocol (the remote URL is different even though location is the same)    
 
-
 8. To create a *second* remote repository for your local repo, the command to add a remote named "bitbucket" with the URL "https://bitbucket.org/your-username/git-commands" is:
-   ```
-   todo your answer
+   ```sh
+   # TODO: Make BitBucket git-commands repo
+   git remote add bitbucket https://bitbucket.org/your-username/git-commands
    ```
    - Note: you must **create** an empty repo on Bitbucket. This command just adds it as a remote, it won't create the remote repo.
 
-
 9. After adding the remote named `bitbucket`, the command to push your master branch to `bitbucket` is:
-
+   ```
+   git push bitbucket master
+   ```
 
