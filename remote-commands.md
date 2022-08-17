@@ -61,7 +61,7 @@
    >
    > To fix the issue, use `git fetch` to update the index of local repo to be equivalent to remote repo.
    >
-   > Then, use `git merge --no-commit` to try automatic merge first, if you didn't an error, skip the next step.
+   > Then, use `git merge --no-commit` to try automatic merge first, if you didn't get an error, skip the next step.
    >
    > To fix another issue that automatic merge cannot be made, you will need to modify the conflicting files yourself until all the conflicts are resolved.
    >
