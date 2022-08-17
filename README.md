@@ -1,3 +1,7 @@
+# Quick Guide to Git
+
+By Pawitchaya C.
+
 ## Using Git
 
 [Basics](#basics)    
@@ -5,7 +9,7 @@
 [Undo Changes and Recover Files](#undo-changes-and-recover-files)    
 [Viewing Commits](#viewing-commits)    
 [Commands for Remotes](remote-commands.md)   
-[Favorites](#favorites)     
+[Useful Commands](#useful-commands)     
 [Resources](#resources)
 
 #### Note on Paths
@@ -239,7 +243,7 @@ test/
    
    Merging can fail whenever the two or more branches have modified the same part (lines) of a file. In Git, it is considered a conflict and must be resolved using `mergetool`.
    
-## Favorites
+## Useful Commands
 
 **Rollback a commit**: I often had nightmares about committing wrongly and pushing them into the remote repository, so I wrote something explicit but works personally,
 ```sh
